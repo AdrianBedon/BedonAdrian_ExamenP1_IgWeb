@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap");
 * {
   margin: 0;
@@ -160,6 +161,42 @@ header a {
 }
 .news article {
   margin: 29.6px 0;
+}
+.news article input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+.news article .content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.35s;
+}
+.news article input:checked ~ .content {
+  max-height: 80px;
+}
+.news article .tab,
+.news article .tab__close {
+  display: flex;
+  color: white;
+  background: var(--theme);
+  opacity: 0.5;
+  cursor: pointer;
+}
+.news article .tab {
+  justify-content: space-between;
+  padding: 1rem;
+}
+.news article .tab::after {
+  content: "❯";
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  transform: rotate(90deg);
+  transition: all 0.35s;
+}
+.news article input:checked + .tab::after {
+  transform: rotate(270deg);
 }
 .news h3 {
   color: #fffdfa;
